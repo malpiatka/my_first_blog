@@ -51,7 +51,6 @@ def comment_new(request, postId):
         form = CommentForm(request.POST)
         if form.is_valid():
             comment = form.save(commit = False)
-            comment.author = request.user
             comment.post = post_comment
             comment.published_date = timezone.now()
             comment.save()

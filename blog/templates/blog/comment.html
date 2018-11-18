@@ -9,8 +9,9 @@
         {{ form.published_date }}
     </div>
     {% endif %}
+    <h4>{{ form.author |linebreaksbr }}</h4>
     <p>{{ form.text |linebreaksbr }}</p>
     <button type="submit">ADD</button>
-    </form>
 </div>
+    </form>
 {% endblock %}

@@ -8,9 +8,23 @@
     </div>
     {% endif %}
     {% if user.is_authenticated %}
-    <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}">
+        <button>EDIT</button>
+    </a>
     {% endif %}
     <h1>{{ post.title }}</h1>
     <p>{{ post.text|linebreaksbr }}</p>
+    <a class="btn btn-default" href="{% url 'comment_new' postId=post.pk %}">
+        <button>ADD COMMENT</button>
+    </a>
+    {% for comment in comments %}
+    <div class="post">
+        <div class="date">
+            {{ comment.published_date }}
+        </div>
+        <h4>{{ comment.author }}</h4>
+        <p>{{ comment.text|linebreaksbr }}</p>
+    </div>
+    {% endfor %}
 </div>
 {% endblock %}

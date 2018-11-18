@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<form method="POST" class="post-form">
+    {% csrf_token %}
+<div class="post">
+    {% if form.published_date %}
+    <div class="date">
+        {{ form.published_date }}
+    </div>
+    {% endif %}
+    <p>{{ form.text |linebreaksbr }}</p>
+    <button type="submit">ADD</button>
+    </form>
+</div>
+{% endblock %}

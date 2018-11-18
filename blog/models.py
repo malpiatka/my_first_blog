@@ -13,6 +13,15 @@ class Post(models.Model):
         self.published_date = timezone.now()
         self.save()
 
-
     def __str__(self):
         return self.title
+
+class Comment(models.Model):
+    author = models.ForeignKey('auth.User', on_delete = models.CASCADE)
+    text = models.CharField(max_length = 500)
+    published_date = models.DateTimeField(blank = True, null = True)
+    post = models.ForeignKey(Post, on_delete = models.CASCADE)
+
+    def publish(self):
+        self.published_date = timezone.now()
+        self.save()

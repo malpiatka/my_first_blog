@@ -14,8 +14,9 @@
 </head>
 <body>
 <div class="page-header">
+    <a href="{% url 'post_new' %}" class="top-menu"><h1>Welcome! This is Maddy's blog</h1></a>
     {% if user.is_authenticated %}
-    <a href="{% url 'post_new' %}" class="top-menu">Maddy's blog</a>
+    <a href="{% url 'post_new' %}" class="top-menu"><h1>Maddy's blog</h1></a>
     {% endif %}
 </div>
 <div class="content container">
